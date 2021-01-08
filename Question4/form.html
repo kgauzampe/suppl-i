@@ -3,28 +3,32 @@
 
     <head>
         <script>
+            var alphabets = /^[A-zA-Z]{2,30}+$/;
+            var email = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}$/;
+            var number =/^[[0-9]{9,11}$/;
+            
             function form() {
                 let fName = document.forms["form1"]
                 ["firstName"].value;
-                if (fName == "") {
+                if (fName == "") || (!fname.value.match(alphabets)){
                     alert("Name must be filled in");
                     return false
                 }
                 let lName = document.forms["form1"]
                 ["lastName"].value;
-                if (lName == "") {
+                if (lName == "") { //same concept would be applied here to validate that its only alphabets
                     alert("Surname must be filled in");
                     return false
                 }
                 let email = document.forms["form1"]
                 ["email"].value;
-                if (email == "") {
+                if (email == "") { //same concept applied here to validate the email pattern
                     alert("email must be filled in");
                     return false
                 }
                 let number = document.forms["form1"]
                 ["number"].value;
-                if (number == "") {
+                if (number == "") { //same to check the it only accepts number and must be betwen 9 and 11 numbers.
                     alert("number must be filled in");
                     return false
                 }
@@ -34,8 +38,13 @@
 
     <body>
         <center>
+            /*you've called a method validateForm that must be called when clicking the submit button. 
+            This is going to cause a uncaughtReferenceError as this function does not exist. You can either use the variables 
+            that I decleared that have the corresponding regex for each required validation and there would be no need to call the validatrFor()
+            or you could just move all that validation into the method and not in each condition*/
+            
         <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-            Name: <input type="text" name="firstName">
+            Name: <input type="text" name="firstName" max="30" >
             <br>
             Surname: <input type="text" name="lastName">
             <br>
