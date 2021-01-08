@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+            function form() {
+                let fName = document.forms["form1"]
+                ["firstName"].value;
+                if (fName == "") {
+                    alert("Name must be filled in");
+                    return false
+                }
+                let lName = document.forms["form1"]
+                ["lastName"].value;
+                if (lName == "") {
+                    alert("Surname must be filled in");
+                    return false
+                }
+                let email = document.forms["form1"]
+                ["email"].value;
+                if (email == "") {
+                    alert("email must be filled in");
+                    return false
+                }
+                let number = document.forms["form1"]
+                ["number"].value;
+                if (number == "") {
+                    alert("number must be filled in");
+                    return false
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <center>
+        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+            Name: <input type="text" name="firstName">
+            <br>
+            Surname: <input type="text" name="lastName">
+            <br>
+            eMail: <input type="text" name="email">
+            <br>
+            Number: <input type="text" name="number">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        </center>
+    </body>
+
+</html>
